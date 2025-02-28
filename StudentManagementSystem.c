@@ -104,3 +104,31 @@ void displayStudents()
     }
     fclose(fp);
 }
+
+void searchStudent()
+{
+    FILE *fp = fopen(FILENAME, "rb");
+    if (!fp)
+    {
+        printf("No records found!\n");
+        return;
+    }
+    int id, found = 0;
+    struct Student s;
+    printf("Enter student ID to search: ");
+    scanf("%d", &id);
+    while (fread(&s, sizeof(s), 1, fp))
+    {
+        if (s.id == id)
+        {
+            printf("\nID: %d\nName: %s\nAge: %d\nMarks: %.2f\n", s.id, s.name, s.age, s.marks);
+            found = 1;
+            break;
+        }
+    }
+    if (!found)
+    {
+        printf("Student not found!\n");
+    }
+    fclose(fp);
+}
