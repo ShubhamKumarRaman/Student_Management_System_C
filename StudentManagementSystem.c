@@ -32,6 +32,32 @@ int main()
         printf("6. Exit\n");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            addStudent();
+            break;
+        case 2:
+            displayStudents();
+            break;
+        case 3:
+            searchStudent();
+            break;
+        case 4:
+            deleteStudent();
+            break;
+        case 5:
+            updateStudent();
+            break;
+        case 6:
+            exit(0);
+            break;
+
+        default:
+            printf("Invalid choice! Please try again.\n");
+            break;
+        }
     }
     return 0;
 }
