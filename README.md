@@ -46,5 +46,6 @@ Contributions are welcome! If you'd like to enhance this project, feel free to s
 
 ## 👨‍💻 Author
 [Shubham Kumar]    
-🔗 [ShubhamKumarRaman]
+🔗 **GitHub:** [Shubham Kumar](https://github.com/ShubhamKumarRaman)
+
 
