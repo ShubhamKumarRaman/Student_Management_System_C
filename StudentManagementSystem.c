@@ -85,3 +85,22 @@ void addStudent()
     fclose(fp);
     printf("Student's record added sucessfully!\n");
 }
+
+// Display Students
+void displayStudents()
+{
+    FILE *fp = fopen(FILENAME, "rb");
+    if (!fp)
+    {
+        printf("\nNo records found!");
+        return;
+    }
+
+    struct Student s;
+    printf("\n ID \tName \t \tAge\t Marks\n");
+    while (fread(&s, sizeof(s), 1, fp))
+    {
+        printf("%d\t%s\t%d\t%.2f\n", s.id, s.name, s.age, s.marks);
+    }
+    fclose(fp);
+}
