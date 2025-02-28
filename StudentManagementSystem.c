@@ -61,3 +61,27 @@ int main()
     }
     return 0;
 }
+
+// Add Student
+void addStudent()
+{
+    FILE *fp = fopen(FILENAME, "ab");
+    if (!fp)
+    {
+        printf("Error opening file!\n");
+        return;
+    }
+    struct Student s;
+    pritnf("\nEnter ID: ");
+    scanf("%d", &s.id);
+    printf("Enter Name: ");
+    scanf("%[^\n]", s.name);
+    printf("Enter Age: ");
+    scanf("%d", &s.age);
+    printf("Enter Marks: ");
+    scanf("%d", &s.marks);
+
+    fwrite(&s, sizeof(s), 1, fp);
+    fclose(fp);
+    printf("Student's record added sucessfully!\n");
+}
