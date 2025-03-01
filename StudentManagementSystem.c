@@ -133,6 +133,7 @@ void searchStudent()
     fclose(fp);
 }
 
+// Delete Student
 void deleteStudent()
 {
     FILE *fp = fopen(FILENAME, "rb");
@@ -160,6 +161,42 @@ void deleteStudent()
     rename("temp.dat", FILENAME);
     if (found)
         printf("Student deleted successfully!\n");
+    else
+        printf("Student not found!\n");
+}
+
+// Update Student
+void updateStudent()
+{
+    FILE *fp = fopen(FILENAME, "rb");
+    if (!fp)
+    {
+        printf("No records found!\n");
+        return;
+    }
+    int id, found = 0;
+    struct Student s;
+    printf("Enter student ID to update: ");
+    scanf("%d", &id);
+    while (fread(&s, sizeof(s), 1, fp))
+    {
+        if (s.id == id)
+        {
+            printf("Enter new Name: ");
+            scanf("%[^\n]", s.name);
+            printf("Enter new Age: ");
+            scanf("%d", &s.age);
+            printf("Enter new Marks: ");
+            scanf("%f", &s.marks);
+            fseek(fp, -sizeof(s), SEEK_CUR);
+            fwrite(&s, sizeof(s), 1, fp);
+            found = 1;
+            break;
+        }
+    }
+    fclose(fp);
+    if (found)
+        printf("Student record updated successfully!\n");
     else
         printf("Student not found!\n");
 }
