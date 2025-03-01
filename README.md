@@ -38,9 +38,6 @@ The **Student Management System** is a C-based project that allows users to **ad
 ![🖥 Main Menu](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/01.jpg)
 ![➕ Adding Student](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/02.jpg)
 ![📋 Viewing Students](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/03.jpg)
-![🔍 Searching Students](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/04.jpg)
-![❌ Delete Students](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/05.jpg)
-![📋 Updating Students](https://github.com/ShubhamKumarRaman/Student_Management_System_C/blob/main/Screenshots/06.jpg)
 
 ## 📜 License
 This project is licensed under the **MIT License**. Feel free to use and modify it while giving proper credit.
