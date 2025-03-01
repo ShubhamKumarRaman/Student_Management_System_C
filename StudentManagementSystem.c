@@ -23,8 +23,8 @@ int main()
     int choice;
     while (1)
     {
-        pirntf("\nStudent Management System\n");
-        pritnf("1. Add Student\n");
+        printf("\nStudent Management System\n");
+        printf("1. Add Student\n");
         printf("2. Display Students\n");
         printf("3. Search Student\n");
         printf("4. Delete Student\n");
@@ -72,14 +72,15 @@ void addStudent()
         return;
     }
     struct Student s;
-    pritnf("\nEnter ID: ");
+    printf("\nEnter ID: ");
     scanf("%d", &s.id);
     printf("Enter Name: ");
+    getchar();
     scanf("%[^\n]", s.name);
     printf("Enter Age: ");
     scanf("%d", &s.age);
     printf("Enter Marks: ");
-    scanf("%d", &s.marks);
+    scanf("%f", &s.marks);
 
     fwrite(&s, sizeof(s), 1, fp);
     fclose(fp);
@@ -97,7 +98,7 @@ void displayStudents()
     }
 
     struct Student s;
-    printf("\n ID \tName \t \tAge\t Marks\n");
+    printf("\nID\tName\t\tAge\tMarks\n");
     while (fread(&s, sizeof(s), 1, fp))
     {
         printf("%d\t%s\t%d\t%.2f\n", s.id, s.name, s.age, s.marks);
@@ -105,6 +106,7 @@ void displayStudents()
     fclose(fp);
 }
 
+// Search Student
 void searchStudent()
 {
     FILE *fp = fopen(FILENAME, "rb");
@@ -168,7 +170,7 @@ void deleteStudent()
 // Update Student
 void updateStudent()
 {
-    FILE *fp = fopen(FILENAME, "rb");
+    FILE *fp = fopen(FILENAME, "rb+");
     if (!fp)
     {
         printf("No records found!\n");
@@ -178,11 +180,13 @@ void updateStudent()
     struct Student s;
     printf("Enter student ID to update: ");
     scanf("%d", &id);
+
     while (fread(&s, sizeof(s), 1, fp))
     {
         if (s.id == id)
         {
             printf("Enter new Name: ");
+            getchar();
             scanf("%[^\n]", s.name);
             printf("Enter new Age: ");
             scanf("%d", &s.age);
